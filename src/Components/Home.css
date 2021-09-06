@@ -1,0 +1,143 @@
+body {
+	background-color: rgb(31, 31, 14);
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: hidden;
+	background-image: url('https://www.wallpapertip.com/wmimgs/52-521736_purple-power-point-background.jpg');
+}
+.animation {
+	position: absolute;
+	margin: auto;
+	z-index: 99;
+	width: 100vw;
+	transform: rotate(90deg);
+	/* height: 100vh; */
+}
+.container {
+	display: flex;
+	align-items: center;
+	/* justify-content: center; */
+	padding: 80px 250px;
+}
+.grids {
+	width: 30vw;
+	height: 30vw;
+	display: grid;
+	grid-gap: 0;
+	grid-template-rows: auto auto auto auto auto auto auto auto auto;
+	grid-template-columns: auto auto auto auto auto auto auto auto auto;
+}
+.box {
+	width: 55px;
+	height: 55px;
+	font-size: 20px;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	color: white;
+	background: darkslategrey;
+	border: 1px solid gray;
+}
+:disabled {
+	background: #11291f;
+	color: gray;
+	cursor: default;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+	-moz-appearance: textfield;
+}
+.hint {
+	display: block;
+	width: fit-content;
+	position: fixed;
+	display: flex;
+	bottom: 50px;
+	left: 250px;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	color: white;
+}
+
+.hint input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: #eee;
+}
+
+.hint:hover input ~ span {
+	background-color: #ccc;
+}
+
+.hint input:checked ~ span {
+	background-color: #aa58c7;
+}
+
+span:after {
+	content: '';
+	position: absolute;
+	display: none;
+}
+
+.hint input:checked ~ span:after {
+	display: block;
+}
+
+.hint span:after {
+	left: 9px;
+	top: 5px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+button {
+	/* top: 50px; */
+	right: 50%;
+	transform: translateX(50%);
+	border: none;
+	background: #aa58c7;
+	margin: 20px;
+	width: 200px;
+	padding: 20px;
+	font-size: 20px;
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+}
+/* button:last-child {
+	transform: translateX(110%);
+} */
+.autoSolve {
+	margin-top: -200px;
+	margin-left: 50px;
+}
