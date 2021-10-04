@@ -4,6 +4,7 @@ import './Home.css';
 
 const Home = () => {
 	const [number, setNumber] = React.useState(1);
+	const [grids, setGrids] = React.useState(newBoard);
 	const [ii, setI] = React.useState(0);
 	const [jj, setJ] = React.useState(0);
 	const [state, setState] = React.useState(false);
@@ -62,7 +63,16 @@ const Home = () => {
 	React.useEffect(async () => {
 		setValues();
 	}, [number, jj, ii]);
-	const handleAutoSolve = () => {};
+
+	const handleAutoSolve = () => {
+		setGrids(Boards);
+		setSolved(true);
+	};
+
+	const handleReset = () => {
+		setGrids(newBoard);
+	};
+	console.log(solved);
 	return (
 		<div className='container'>
 			{solved && (
@@ -77,7 +87,7 @@ const Home = () => {
 				</div>
 			)}
 			<div className='grids'>
-				{newBoard.map((row, i) =>
+				{grids.map((row, i) =>
 					row.map((num, j) => (
 						<input
 							type='number'
@@ -85,7 +95,7 @@ const Home = () => {
 								universal[i][j] === ''
 									? state && num === res[i][j]
 										? { background: 'darkgreen', color: 'white' }
-										: { background: '#522162', color: 'white' }
+										: { background: '#783093', color: 'white' }
 									: { background: '#220E29', color: '#gray' }
 							}
 							key={row + i + j}
@@ -97,15 +107,18 @@ const Home = () => {
 					)),
 				)}
 			</div>
-			<label className='hint'>
-				<input type='checkbox' onClick={() => setState(!state)} />
-				<span></span>
-				Hint Mode
-			</label>
-			<div className='autoSolve'>
+
+			<div className='buttons'>
+				<label className='hint'>
+					<input type='checkbox' onClick={() => setState(!state)} />
+					<span></span>
+					Hint Mode
+				</label>
 				<button onClick={() => handleSubmit()}>Submit</button>
 				<br />
 				<button onClick={() => handleAutoSolve()}>Auto Solve</button>
+				<br />
+				<button onClick={() => handleReset()}>Reset</button>
 			</div>
 		</div>
 	);
